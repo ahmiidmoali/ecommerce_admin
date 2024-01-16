@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "376702493929",
+    "project_id": "deliveryeco-34cf1",
+    "storage_bucket": "deliveryeco-34cf1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376702493929:android:52fbcb1f62a95c1a987c78",
+        "android_client_info": {
+          "package_name": "com.example.delivery33"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd8-yEvxZyRl_24VXLxTYLzZemLe11fPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
