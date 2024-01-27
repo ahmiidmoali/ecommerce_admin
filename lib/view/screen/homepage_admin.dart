@@ -1,5 +1,6 @@
 import 'package:delivery33/core/constant/appcolor.dart';
 import 'package:delivery33/core/constant/imageasset.dart';
+import 'package:delivery33/core/constant/routes.dart';
 import 'package:delivery33/view/screen/categories_items/categories_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,31 +16,25 @@ class homePageAdmin extends StatelessWidget {
           GridView(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, childAspectRatio: 1),
             children: [
               CustomFieldHomePageAdmin(
                   onTap: () {
                     Get.to(() => const categoriesView());
                   },
-                  imagename: AppImageAsset.deliveryd,
+                  imagename: AppImageAsset.cat1,
                   fieldname: "Categories"),
               CustomFieldHomePageAdmin(
-                  onTap: () {},
-                  imagename: AppImageAsset.deliveryd,
-                  fieldname: "Categories"),
+                  onTap: () {
+                    Get.toNamed(AppRoute.orderscreen);
+                  },
+                  imagename: AppImageAsset.order1,
+                  fieldname: "orders"),
               CustomFieldHomePageAdmin(
                   onTap: () {},
-                  imagename: AppImageAsset.deliveryd,
-                  fieldname: "Categories"),
-              CustomFieldHomePageAdmin(
-                  onTap: () {},
-                  imagename: AppImageAsset.deliveryd,
-                  fieldname: "Categories"),
-              CustomFieldHomePageAdmin(
-                  onTap: () {},
-                  imagename: AppImageAsset.deliveryd,
-                  fieldname: "Categories")
+                  imagename: AppImageAsset.ads1,
+                  fieldname: "Ads"),
             ],
           )
         ],

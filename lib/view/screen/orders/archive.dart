@@ -34,11 +34,6 @@ class _archiveordersState extends State<archiveorders> {
       body: GetBuilder<ArchiveController>(
           builder: (controller) => ListView(
                 children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        controller.onInit();
-                      },
-                      child: Text("bottom")),
                   ...List.generate(
                       controller.data.length,
                       (index) => controller.data[index].ordersStatus == 3

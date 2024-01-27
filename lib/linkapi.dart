@@ -38,12 +38,7 @@ class AppLink {
   static const String addressview = "$server/address/view.php";
   //coupon
   static const String checkcoupon = "$server/coupon/checkcoupon.php";
-  //orders checkout
-  static const String checkout = "$server/orders/checkout.php";
-  static const String pending = "$server/orders/pending.php";
-  static const String details = "$server/orders/details.php";
-  static const String delete = "$server/orders/delete.php";
-  static const String rating = "$server/orders/rating.php";
+
   //notifications
   static const String notifications = "$server/notifications.php";
   //offers
@@ -54,4 +49,12 @@ class AppLink {
   //---
   static const String itemsview = "$server/admin/items/view.php";
   static const String itemsadd = "$server/admin/items/add.php";
+  static const String itemsedit = "$server/admin/items/update.php";
+  static const String itemsdelete = "$server/admin/items/delete.php";
+  //orders checkout
+  static const String checkout = "$server/orders/checkout.php";
+  static const String pending = "$server/admin/orders/pending.php";
+  static const String details = "$server/admin/orders/details.php";
+  static const String delete = "$server/orders/delete.php";
+  static const String rating = "$server/orders/rating.php";
 }

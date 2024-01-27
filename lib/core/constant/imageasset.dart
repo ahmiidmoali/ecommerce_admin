@@ -9,6 +9,10 @@ class AppImageAsset {
   // delivery types..........
   static const String deliveryd = "$rootImages/delivery.png";
   static const String drivethrud = "$rootImages/drivethru.png";
+  // delivery types..........
+  static const String ads1 = "$rootImages/ads1.png";
+  static const String cat1 = "$rootImages/cat1.png";
+  static const String order1 = "$rootImages/order1.png";
 
   // static const String onBoardingImageFour = "$rootImages/onboardingfour.PNG";
   static const String loading = "$rootLottie/loading.json";

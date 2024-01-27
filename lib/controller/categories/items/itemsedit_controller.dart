@@ -8,12 +8,17 @@ import '../../../core/functions/handlingdatacontroller.dart';
 import 'dart:io';
 
 import '../../../core/functions/uploadfile.dart';
+import '../../../data/model/itemsmodel.dart';
 
-abstract class ItemsAddController extends GetxController {}
+abstract class ItemsEditController extends GetxController {}
 
-class ItemsAddControllerImp extends ItemsAddController {
-  late String catid;
-  int activeState = 1;
+class ItemsEditControllerImp extends ItemsEditController {
+  List<Itemsmodel> items = [];
+  late String itid;
+  late int activeState;
+  late String oldpic;
+
+  late String iswithpic;
   change(int a, b) {
     if (activeState == a) {
       activeState = b;
@@ -31,7 +36,6 @@ class ItemsAddControllerImp extends ItemsAddController {
 
   chooseGallery() async {
     image = await fileUploadGallery(false);
-
     update();
   }
 
@@ -46,14 +50,18 @@ class ItemsAddControllerImp extends ItemsAddController {
   StatusRequest statusRequest = StatusRequest.none;
   getimage() {}
 
-  addData() async {
+  editData() async {
     if (image == null) {
-      return Get.snackbar("failed", "please choose the pic first");
+      iswithpic = "no";
     }
+    if (image != null) {
+      iswithpic = "yes";
+    }
+
     if (formstate2.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
-      var response = await itemsData.addData({
+      var response = await itemsData.editData({
         "itname": itname.text,
         "itnamear": itnamear.text,
         "itdesc": itdesc.text,
@@ -62,14 +70,14 @@ class ItemsAddControllerImp extends ItemsAddController {
         "itactive": activeState.toString(),
         "itprice": itprice.text,
         "itdiscount": itdiscount.text,
-        "itcategories": catid.toString()
+        "iswithpic": iswithpic,
+        "oldpic": oldpic,
+        "itid": itid.toString()
       }, image, "imagename");
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response["status"] == "success") {
           Get.offAllNamed(AppRoute.homepage);
-          Get.toNamed(AppRoute.itemsview,
-              arguments: {"catid": catid.toString()});
         } else {
           // Get.defaultDialog(
           //     title: "Alert", middleText: "This Email Is Not Exist");
@@ -82,14 +90,18 @@ class ItemsAddControllerImp extends ItemsAddController {
 
   @override
   void onInit() {
-    itname = TextEditingController();
-    itnamear = TextEditingController();
-    itdesc = TextEditingController();
-    itdescar = TextEditingController();
-    itcount = TextEditingController();
-    itprice = TextEditingController();
-    itdiscount = TextEditingController();
-    catid = Get.arguments["currentcat"];
+    items.clear();
+    items.add(Get.arguments["currentitdata"]);
+    itname = TextEditingController(text: items[0].itemsName.toString());
+    itnamear = TextEditingController(text: items[0].itemsNameAr.toString());
+    itdesc = TextEditingController(text: items[0].itemsDesc.toString());
+    itdescar = TextEditingController(text: items[0].itemsDescAr.toString());
+    itcount = TextEditingController(text: items[0].itemsCount.toString());
+    itprice = TextEditingController(text: items[0].itemsPrice.toString());
+    itdiscount = TextEditingController(text: items[0].itemsDiscount.toString());
+    itid = items[0].itemsId.toString();
+    oldpic = items[0].itemsImage.toString();
+    activeState = items[0].itemsActive!;
     super.onInit();
   }
 }

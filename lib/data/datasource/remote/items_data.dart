@@ -24,4 +24,25 @@ class ItemsData {
       (r) => r,
     );
   }
+
+  editData(Map data, File? image, String namerequest) async {
+    var response = await crud.addRequestWithImageOne(
+        AppLink.itemsedit, data, image, namerequest);
+    print("================$response===================");
+    return response.fold(
+      (l) => l,
+      (r) => r,
+    );
+  }
+
+  deleteData(
+    Map data,
+  ) async {
+    var response = await crud.postData(AppLink.itemsdelete, data);
+    print("================$response===================");
+    return response.fold(
+      (l) => l,
+      (r) => r,
+    );
+  }
 }

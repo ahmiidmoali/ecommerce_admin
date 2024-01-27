@@ -262,6 +262,7 @@ class CustomPedingCard extends GetView<PendingController> {
                   MaterialButton(
                     onPressed: () {
                       Get.toNamed(AppRoute.orderdetails, arguments: {
+                        "usersid": ordersModel.ordersUsersid.toString(),
                         "myordersid": ordersModel.ordersId.toString()
                       });
                     },

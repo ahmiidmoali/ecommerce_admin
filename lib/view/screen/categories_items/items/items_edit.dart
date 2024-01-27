@@ -1,22 +1,22 @@
 import 'package:delivery33/view/widget/auth/customtexttitleauth.dart';
 import 'package:delivery33/view/widget/home/customtitlehome.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/categories/items/itemsadd_controller.dart';
-import '../../../core/constant/appcolor.dart';
-import '../../../core/functions/validinput.dart';
-import '../../widget/auth/custombuttonauth.dart';
-import '../../widget/auth/customtextformfieldauth.dart';
-import '../../widget/language/custombuttomlang.dart';
+import '../../../../controller/categories/items/itemsadd_controller.dart';
+import '../../../../controller/categories/items/itemsedit_controller.dart';
+import '../../../../core/constant/appcolor.dart';
+import '../../../../core/functions/validinput.dart';
+import '../../../widget/auth/custombuttonauth.dart';
+import '../../../widget/auth/customtextformfieldauth.dart';
+import '../../../widget/language/custombuttomlang.dart';
 
-class itemsAdd extends StatelessWidget {
-  const itemsAdd({super.key});
+class itemsEdit extends StatelessWidget {
+  const itemsEdit({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ItemsAddControllerImp controllerImp = Get.put(ItemsAddControllerImp());
+    ItemsEditControllerImp controllerImp = Get.put(ItemsEditControllerImp());
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add New item"),
@@ -31,7 +31,7 @@ class itemsAdd extends StatelessWidget {
             ),
             const customTextTitleAuth(
                 text: "Active - to add it right now to the store"),
-            GetBuilder<ItemsAddControllerImp>(
+            GetBuilder<ItemsEditControllerImp>(
               builder: (controller) => Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -130,7 +130,7 @@ class itemsAdd extends StatelessWidget {
               keyboardType: const TextInputType.numberWithOptions(
                   signed: false, decimal: false),
             ),
-            GetBuilder<ItemsAddControllerImp>(
+            GetBuilder<ItemsEditControllerImp>(
               builder: (controller) => Column(
                 children: [
                   CustomButtonAuth(
@@ -159,9 +159,9 @@ class itemsAdd extends StatelessWidget {
               height: 30,
             ),
             customButtonLang(
-              title: "ADD",
+              title: "Apply",
               onPressed: () {
-                controllerImp.addData();
+                controllerImp.editData();
               },
             )
           ],

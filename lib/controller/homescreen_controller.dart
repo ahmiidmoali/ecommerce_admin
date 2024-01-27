@@ -24,15 +24,15 @@ class HomeScreenControllerImp extends HomeScreenController {
   }
 
   List<Widget> mypages = [
+    const homePageAdmin(),
     const homePage(),
-    homePageAdmin(),
     const notificationsPage(),
     const profilePage(),
   ];
-  List<String> appbarname = ["home", "HomeAdmin", "notifica", "Settings"];
+  List<String> appbarname = ["HomeAdmin", "home", "notifica", "Settings"];
   List iconsList = [
-    Icons.home_outlined,
     Icons.category_outlined,
+    Icons.home_outlined,
     Icons.notifications_active_outlined,
     Icons.settings_outlined,
   ];

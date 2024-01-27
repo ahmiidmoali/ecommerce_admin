@@ -12,6 +12,7 @@ import '../../data/datasource/remote/orders/details_data.dart';
 class OrderDetailsController extends GetxController {
   List<ItemsCardModel> dataitems = [];
   String? ordersid;
+  String? usersid;
   int? addressid;
   // List<OrdersModel> dataorders = [];
   Map dataorders = {};
@@ -21,11 +22,10 @@ class OrderDetailsController extends GetxController {
   OrderDetailsData orderDetailsData = OrderDetailsData(Get.find());
   StatusRequest statusRequest = StatusRequest.none;
 
-  getData(String ordersid) async {
+  getData(String usersid, String ordersid) async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await orderDetailsData.getData(
-        myServices.sharedPreferences.getString("id")!, ordersid);
+    var response = await orderDetailsData.getData(usersid, ordersid);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {
@@ -58,7 +58,8 @@ class OrderDetailsController extends GetxController {
 
   initialData() async {
     ordersid = Get.arguments["myordersid"];
-    await getData(ordersid!);
+    usersid = Get.arguments["usersid"];
+    await getData(usersid!, ordersid!);
   }
 
   @override

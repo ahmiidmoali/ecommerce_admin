@@ -43,8 +43,7 @@ class PendingController extends GetxController {
   getData() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await pendingData
-        .getData(myServices.sharedPreferences.getString("id")!);
+    var response = await pendingData.getData();
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {

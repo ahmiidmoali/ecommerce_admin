@@ -1,7 +1,9 @@
 import 'package:delivery33/view/screen/categories_items/categories_add.dart';
 import 'package:delivery33/view/screen/categories_items/categories_view.dart';
-import 'package:delivery33/view/screen/categories_items/items_add.dart';
-import 'package:delivery33/view/screen/categories_items/items_view.dart';
+import 'package:delivery33/view/screen/categories_items/items/items_add.dart';
+import 'package:delivery33/view/screen/categories_items/items/items_edit.dart';
+import 'package:delivery33/view/screen/categories_items/items/items_view.dart';
+import 'package:delivery33/view/screen/orders/orders_screen.dart';
 import 'package:get/get.dart';
 import 'package:delivery33/core/constant/routes.dart';
 import 'package:delivery33/core/middleware/mymiddleware.dart';
@@ -55,11 +57,16 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.pending, page: () => const pendingorders()),
   GetPage(name: AppRoute.orderdetails, page: () => const orderDetails()),
   GetPage(name: AppRoute.orderarchive, page: () => const archiveorders()),
-  //--------------------------------------------
+  //----items and catregories----------------------------------------
+  //--items
   GetPage(name: AppRoute.itemsview, page: () => const itemsView()),
   GetPage(name: AppRoute.itemsadd, page: () => const itemsAdd()),
+  GetPage(name: AppRoute.itemsedit, page: () => const itemsEdit()),
+  //--categories
   GetPage(name: AppRoute.catadd, page: () => const categoriesAdd()),
   GetPage(name: AppRoute.catview, page: () => const categoriesView()),
+  //--orders
+  GetPage(name: AppRoute.orderscreen, page: () => const ordersScreen()),
 ];
 
 

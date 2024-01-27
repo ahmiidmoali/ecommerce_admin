@@ -30,6 +30,15 @@ class ItemsViewController extends GetxController {
     update();
   }
 
+  removeData(String itid, String oldpic) {
+    itemsData.deleteData({"itid": itid, "oldpic": oldpic});
+
+    items.removeWhere((element) => element.itemsId == int.parse(itid));
+    Get.back();
+
+    update();
+  }
+
   @override
   void onInit() {
     currentid = Get.arguments["catid"];

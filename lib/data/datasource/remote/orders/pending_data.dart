@@ -5,8 +5,8 @@ import '../../../../core/class/crud.dart';
 class PendingData {
   Crud crud;
   PendingData(this.crud);
-  getData(String id) async {
-    var response = await crud.postData(AppLink.pending, {"usersid": id});
+  getData() async {
+    var response = await crud.postData(AppLink.pending, {});
     print("================$response===================");
     return response.fold(
       (l) => l,

@@ -5,7 +5,7 @@ import 'package:delivery33/core/constant/imageasset.dart';
 import 'package:delivery33/core/constant/routes.dart';
 import 'package:delivery33/linkapi.dart';
 import 'package:delivery33/view/screen/categories_items/categories_add.dart';
-import 'package:delivery33/view/screen/categories_items/items_view.dart';
+import 'package:delivery33/view/screen/categories_items/items/items_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
