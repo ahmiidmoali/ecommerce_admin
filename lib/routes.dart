@@ -1,3 +1,5 @@
+import 'package:delivery33/view/screen/ads/ads_add.dart';
+import 'package:delivery33/view/screen/ads/ads_view.dart';
 import 'package:delivery33/view/screen/categories_items/categories_add.dart';
 import 'package:delivery33/view/screen/categories_items/categories_view.dart';
 import 'package:delivery33/view/screen/categories_items/items/items_add.dart';
@@ -67,6 +69,9 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.catview, page: () => const categoriesView()),
   //--orders
   GetPage(name: AppRoute.orderscreen, page: () => const ordersScreen()),
+  //ads
+  GetPage(name: AppRoute.adsview, page: () => const adsView()),
+  GetPage(name: AppRoute.adsadd, page: () => const adsAdd()),
 ];
 
 

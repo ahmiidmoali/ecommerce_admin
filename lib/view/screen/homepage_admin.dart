@@ -32,7 +32,9 @@ class homePageAdmin extends StatelessWidget {
                   imagename: AppImageAsset.order1,
                   fieldname: "orders"),
               CustomFieldHomePageAdmin(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoute.adsview);
+                  },
                   imagename: AppImageAsset.ads1,
                   fieldname: "Ads"),
             ],

@@ -104,6 +104,22 @@ class itemsView extends StatelessWidget {
                           )),
                           Positioned(
                               top: 10,
+                              left: 10,
+                              child: InkWell(
+                                onTap: () {
+                                  Get.toNamed(AppRoute.adsadd, arguments: {
+                                    "currentid": controller.items[index].itemsId
+                                        .toString()
+                                  });
+                                },
+                                child: const Icon(
+                                  Icons.ads_click,
+                                  color: AppColor.primaryColor,
+                                  size: 30,
+                                ),
+                              )),
+                          Positioned(
+                              top: 10,
                               right: 10,
                               child: InkWell(
                                 onTap: () {

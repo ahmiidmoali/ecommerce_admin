@@ -38,4 +38,7 @@ class AppRoute {
   static const String catadd = "/catadd";
   //orders-----------------
   static const String orderscreen = "/orderscreen";
+  //ads-----------------
+  static const String adsview = "/adsview";
+  static const String adsadd = "/adsadd";
 }

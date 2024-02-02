@@ -4,6 +4,7 @@ class AppLink {
   //.................
   static const String imagecategories = "$imageStatic/categories";
   static const String imageitems = "$imageStatic/items";
+  static const String imageads = "$imageStatic/ads";
   //.................
 
   static const String test = "$server/test.php";
@@ -46,7 +47,7 @@ class AppLink {
   //----------------------------------------------------------------
   static const String catview = "$server/admin/categories/view.php";
   static const String catadd = "$server/admin/categories/add.php";
-  //---
+  //-items--
   static const String itemsview = "$server/admin/items/view.php";
   static const String itemsadd = "$server/admin/items/add.php";
   static const String itemsedit = "$server/admin/items/update.php";
@@ -57,4 +58,9 @@ class AppLink {
   static const String details = "$server/admin/orders/details.php";
   static const String delete = "$server/orders/delete.php";
   static const String rating = "$server/orders/rating.php";
+  //--ads-
+  static const String adsview = "$server/admin/ads/view.php";
+  static const String adsadd = "$server/admin/ads/add.php";
+  static const String adsedit = "$server/admin/ads/edit.php";
+  static const String adsdelete = "$server/admin/ads/delete.php";
 }
