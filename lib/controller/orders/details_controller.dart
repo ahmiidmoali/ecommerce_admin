@@ -14,8 +14,19 @@ class OrderDetailsController extends GetxController {
   String? ordersid;
   String? usersid;
   int? addressid;
+
+  bool myisprepared = false;
   // List<OrdersModel> dataorders = [];
   Map dataorders = {};
+  confirmorder() {
+    if (myisprepared == false) {
+      myisprepared = true;
+      update();
+    } else {
+      myisprepared = false;
+      update();
+    }
+  }
 
   List<AddressModel> dataaddress = [];
   MyServices myServices = Get.find();

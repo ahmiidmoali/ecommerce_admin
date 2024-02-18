@@ -5,6 +5,8 @@ import 'package:delivery33/core/constant/appcolor.dart';
 import 'package:delivery33/data/model/itemscardmodel.dart';
 
 import '../../../controller/orders/details_controller.dart';
+import '../../widget/addressdetails/adressdetailscard.dart';
+import '../../widget/addressdetails/prepare_order.dart';
 
 class orderDetails extends StatefulWidget {
   const orderDetails({super.key});
@@ -23,7 +25,7 @@ class _orderDetailsState extends State<orderDetails> {
       builder: (controller) => handlingDataView(
         statusRequest: controller.statusRequest,
         widget: Container(
-          margin: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+          margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
           child: ListView(
             children: [
               Card(
@@ -44,27 +46,34 @@ class _orderDetailsState extends State<orderDetails> {
                             )),
                     Column(
                       children: [
-                        Divider(height: 5, thickness: 4),
+                        const Divider(height: 5, thickness: 4),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            TitleTextDetails(text: "Total Price : "),
+                            const TitleTextDetails(text: "Total Price : "),
                             TitleTextDetails(
                                 text:
                                     "${controller.dataorders["orders_totalprice"]}")
                           ],
                         ),
-                        // ...List.generate(
-                        //     controller.dataaddress.length,
-                        //     (index) => controller
-                        //                 .dataaddress[index].addressId ==
-                        //             controller.addressid
-                        //         ? AddressModalcard(
-                        //             addressModel: controller.dataaddress[index],
-                        //           )
-                        //         : Container(
-                        //             height: 1,
-                        //           )),
+                        ...List.generate(
+                            controller.dataaddress.length,
+                            (index) => controller
+                                        .dataaddress[index].addressId ==
+                                    controller.addressid
+                                ? AddressModalcard(
+                                    addressModel: controller.dataaddress[index],
+                                  )
+                                : Container(
+                                    height: 1,
+                                  )),
+                        PrepareOrder(
+                          myisprepared: controller.myisprepared,
+                          confirmorder: () {
+                            controller.confirmorder();
+                          },
+                          acceptorder: () {},
+                        )
                       ],
                     )
                   ],
@@ -89,7 +98,7 @@ class TitleTextDetails extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 5),
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 20,
               color: AppColor.primaryColor,
               fontWeight: FontWeight.bold),
@@ -110,7 +119,7 @@ class BodyTextDetails extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Text(
           text,
-          style: TextStyle(fontSize: 18, color: AppColor.black),
+          style: const TextStyle(fontSize: 18, color: AppColor.black),
         ),
       ),
     );
